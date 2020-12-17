@@ -236,7 +236,7 @@ if strcmp(kernel, 'polynomial')
                 for d = 1:4
                     fprintf('================= Polynomial Order: %d =================\n', polynomial_order_param(d));
                     
-                    polynomial_model = fitcsvm(inner_training_fold(:, 1:13), inner_training_fold(:, 14),'KernelFunction','polynomial', 'Standardize', true,'PolynomialOrder', polynomial_order_param(d), 'BoxConstraint', box_constraint_param(g));
+                    polynomial_model = fitcsvm(inner_training_fold(:, 1:13), inner_training_fold(:, 14),'KernelFunction','polynomial', 'PolynomialOrder', polynomial_order_param(d), 'BoxConstraint', box_constraint_param(g));
 
                     polynomial_preds = predict(polynomial_model, validation_fold(:,1:13));
                     validation_fold_y = table2array(validation_fold(:, 14));
