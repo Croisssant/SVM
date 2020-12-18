@@ -1,9 +1,6 @@
-%This is the main program to run different kernel for classification and
-%regression.
-
 i = 1;
 while i == 1
-    fprintf('Please select classification or regression\n');
+    fprintf('Please select classification or regression');
     fprintf('0 - Classification\n');
     fprintf('1 - Regression\n');
     type = input('>>>');
@@ -27,22 +24,18 @@ while i == 1
         end
         
     elseif user_ans == 1
-        if type == 0
-            [retrained_model, f1_score] = Classification_SVM(path, 'rbf');
-        elseif type ==1
-            RMSE = Regression_SVM(path,'rbf');
-        end
+        [retrained_model, f1_score] = Classification_SVM(path, 'rbf');
+        continue;
+    
     elseif user_ans == 2
-        if type == 0
-            [retrained_model, f1_score] = Classification_SVM(path, 'linear');
-        elseif type ==1
-            RMSE = Regression_SVM(path,'linear');
-        end
+        [retrained_model, f1_score] = Classification_SVM(path, 'linear');
     elseif user_ans == 3
         i = 0;
-        return;        
+        return;
+        
     else
         disp('Please provide a valid input')
         continue;
+    
     end
 end
